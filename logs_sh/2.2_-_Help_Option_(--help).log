@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): 'Use: .\/threadsort -f \| --file <path_to_config file>'
+    Actual Output:
+    --------------------
+
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): 'Use: .\/threadsort -f \| --file <path_to_config file>'
+    Actual Output:
+    --------------------
+
+    --------------------

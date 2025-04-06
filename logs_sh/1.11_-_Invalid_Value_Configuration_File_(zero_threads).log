@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): thread_num must be greater than zero.
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f invalid_value_threads_config.txt: No such file or directory
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): thread_num must be greater than zero.
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f invalid_value_threads_config.txt: No such file or directory
+    --------------------

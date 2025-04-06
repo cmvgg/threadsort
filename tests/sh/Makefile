@@ -46,6 +46,7 @@ $(TARGET): $(OBJ)
 run: $(TARGET)
 	mkdir -p "../../logs_sh"
 	cd ../../ && make
+	sleep 2
 	chmod +x *.sh
 	./launch.sh > ../../logs_sh/logs_sh_test.log
 

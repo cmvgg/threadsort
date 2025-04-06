@@ -1,0 +1,94 @@
+Running configuration tests...
+--- Configuration File Tests ---
+Running test: 1.1 - Valid Configuration File (small)
+  Executing: build/tests -f valid_config.txt
+  Log file: ../../logs_sh/1.1_-_Valid_Configuration_File_(small).log
+
+Running test: 1.2 - Valid Configuration File (large)
+  Executing: build/tests -f valid_config_large.txt
+  Log file: ../../logs_sh/1.2_-_Valid_Configuration_File_(large).log
+
+Running test: 1.3 - Valid Configuration File (single thread)
+  Executing: build/tests -f valid_config_single_thread.txt
+  Log file: ../../logs_sh/1.3_-_Valid_Configuration_File_(single_thread).log
+
+Running test: 1.4 - Configuration File with Comments
+  Executing: build/tests -f config_with_comments.txt
+  Log file: ../../logs_sh/1.4_-_Configuration_File_with_Comments.log
+
+Running test: 1.5 - Empty Configuration File
+  Executing: build/tests -f empty_config.txt
+  Log file: ../../logs_sh/1.5_-_Empty_Configuration_File.log
+
+Running test: 1.6 - Configuration File with Whitespace
+  Executing: build/tests -f config_with_whitespace.txt
+  Log file: ../../logs_sh/1.6_-_Configuration_File_with_Whitespace.log
+
+Running test: 1.7 - Nonexistent Configuration File
+  Executing: build/tests -f nonexistent_config.txt
+  Log file: ../../logs_sh/1.7_-_Nonexistent_Configuration_File.log
+
+Running test: 1.8 - Invalid Syntax Configuration File (missing equals)
+  Executing: build/tests -f invalid_syntax_equal_config.txt
+  Log file: ../../logs_sh/1.8_-_Invalid_Syntax_Configuration_File_(missing_equals).log
+
+Running test: 1.9 - Invalid Syntax Configuration File (unknown key - should be ignored)
+  Executing: build/tests -f invalid_syntax_unknown_key_config.txt
+  Log file: ../../logs_sh/1.9_-_Invalid_Syntax_Configuration_File_(unknown_key_-_should_be_ignored).log
+
+Running test: 1.10 - Invalid Value Configuration File (negative numbers)
+  Executing: build/tests -f invalid_value_numbers_config.txt
+  Log file: ../../logs_sh/1.10_-_Invalid_Value_Configuration_File_(negative_numbers).log
+
+Running test: 1.11 - Invalid Value Configuration File (zero threads)
+  Executing: build/tests -f invalid_value_threads_config.txt
+  Log file: ../../logs_sh/1.11_-_Invalid_Value_Configuration_File_(zero_threads).log
+
+Running test: 1.12 - Missing Required Key (thread_num)
+  Executing: build/tests -f missing_key_config.txt
+  Log file: ../../logs_sh/1.12_-_Missing_Required_Key_(thread_num).log
+
+
+Running command-line argument tests...
+--- Command-Line Argument Tests ---
+Running test: 2.1 - Help Option (-h)
+  Executing: ./build/tests -h
+  Log file: ../../logs_sh/2.1_-_Help_Option_(-h).log
+
+Running test: 2.2 - Help Option (--help)
+  Executing: ./build/tests --help
+  Log file: ../../logs_sh/2.2_-_Help_Option_(--help).log
+
+Running test: 2.3 - No Arguments
+  Executing: ./build/tests
+  Log file: ../../logs_sh/2.3_-_No_Arguments.log
+
+Running test: 2.4 - Missing Configuration File Path (-f)
+  Executing: ./build/tests -f
+  Log file: ../../logs_sh/2.4_-_Missing_Configuration_File_Path_(-f).log
+
+Running test: 2.5 - Missing Configuration File Path (--file)
+  Executing: ./build/tests --file
+  Log file: ../../logs_sh/2.5_-_Missing_Configuration_File_Path_(--file).log
+
+
+Running signal tests (automated)...
+--- Signal Handling Tests (Automated) ---
+Running test: 3.1 - Send SIGINT
+  Result: FAILED (SIGINT) - Exit Code: 1
+    Output:
+Error opening config file: No such file or directory
+Error to read config file: ../config/valid_config.txt
+test_signals.sh: line 18: kill: (38844) - No such process
+  Log file: ../../logs_sh/signal_sigint.log
+
+Running test: 3.2 - Send SIGTERM
+  Result: FAILED (SIGTERM) - Exit Code: 1
+    Output:
+Error opening config file: No such file or directory
+Error to read config file: ../config/valid_config.txt
+test_signals.sh: line 41: kill: (38852) - No such process
+  Log file: ../../logs_sh/signal_sigterm.log
+
+
+All tests have finished. Review the results in the logs_sh directory.

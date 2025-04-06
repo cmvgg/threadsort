@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): 'even list numbers.: \[' and 'odd list numbers.: \['
+    Actual Output:
+    --------------------
+test_config.sh: line 12: build/tests -f config_with_comments.txt: No such file or directory
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): 'even list numbers.: \[' and 'odd list numbers.: \['
+    Actual Output:
+    --------------------
+test_config.sh: line 12: build/tests -f config_with_comments.txt: No such file or directory
+    --------------------

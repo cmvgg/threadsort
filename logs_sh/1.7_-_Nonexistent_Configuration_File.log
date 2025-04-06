@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): Error opening config file
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f nonexistent_config.txt: No such file or directory
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): Error opening config file
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f nonexistent_config.txt: No such file or directory
+    --------------------

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-EXECUTABLE="../../../build/tests"
-LOG_DIR="../../../logs_sh"
+EXECUTABLE="build/tests"
+LOG_DIR="../../logs_sh"
 
 run_test_success() {
     TEST_NAME="$1"

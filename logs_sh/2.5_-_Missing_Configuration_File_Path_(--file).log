@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): for use this program you need select option -h \| --help or -f \|--file
+    Actual Output:
+    --------------------
+
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 0)
+    Expected Output (Regex): for use this program you need select option -h \| --help or -f \|--file
+    Actual Output:
+    --------------------
+
+    --------------------

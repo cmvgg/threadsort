@@ -1,0 +1,14 @@
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): Missing required keys.
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f empty_config.txt: No such file or directory
+    --------------------
+  Result: FAILED
+    Exit Code: 127 (Expected: 1)
+    Expected Error (stderr Regex): Missing required keys.
+    Actual Output:
+    --------------------
+test_config.sh: line 37: build/tests -f empty_config.txt: No such file or directory
+    --------------------

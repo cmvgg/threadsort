@@ -1,8 +1,8 @@
 #!/bin/bash
 
-EXECUTABLE="../../../build/tests"
-CONFIG_FILE="../../config/valid_config.txt"
-LOG_DIR="../../../logs_sh"
+EXECUTABLE="build/tests"
+CONFIG_FILE="../config/valid_config.txt"
+LOG_DIR="../../logs_sh"
 
 echo "--- Signal Handling Tests (Automated) ---"
 
