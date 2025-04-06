@@ -1,0 +1,17 @@
+.idea/
+.vscode/
+obj/
+logs/
+
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.txt
+order
