@@ -5,6 +5,7 @@ TARGET = $(BUILD_DIR)/unit_tests
 UNITY_SRC = ../unity.c
 CONFIG_SRC = ../../src/config.c
 CLASIF_SRC = ../../src/clasif.c
+THREADS_SRC = ../../src/threads.c
 TEST_RUNNER_SRC = test_runner.c
 TEST_SRC_DIR = .
 
@@ -13,10 +14,11 @@ TEST_SOURCES = $(filter-out $(TEST_RUNNER_SRC), $(wildcard $(TEST_SRC_DIR)/test_
 UNITY_OBJ = $(BUILD_DIR)/unity.o
 CONFIG_OBJ = $(BUILD_DIR)/config.o
 CLASIF_OBJ = $(CLASIF_DIR)/clasif.o
+THREADS_OBJ = $(BUILD_DIR)/threads.o
 TEST_RUNNER_OBJ = $(BUILD_DIR)/$(TEST_RUNNER_SRC:.c=.o)
 TEST_OBJS = $(patsubst $(TEST_SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(TEST_SOURCES))
 
-OBJ = $(UNITY_OBJ) $(CONFIG_OBJ) $(CLASIF_OBJ) $(TEST_RUNNER_OBJ) $(TEST_OBJS)
+OBJ = $(UNITY_OBJ) $(CONFIG_OBJ) $(THREADS_OBJ) $(CLASIF_OBJ) $(TEST_RUNNER_OBJ) $(TEST_OBJS)
 
 all: $(TARGET)
 
@@ -29,6 +31,10 @@ $(CONFIG_OBJ): $(CONFIG_SRC)
 	$(CC) $(CFLAGS) $< -o $@
 
 $(CLASIF_OBJ): $(CLASIF_SRC)
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(THREADS_OBJ): $(THREADS_SRC)
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
