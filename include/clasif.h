@@ -45,18 +45,19 @@ typedef struct {
 int read_config_file(const char *file_path, Config *config);
 int validate_config(const Config *config);
 
+/*CLASIF.C*/
+void initialize_main_list(const Config *config);
+void init_number_list(NumberList *list);
+int add_number_to_list(NumberList *list, int number);
+void print_number_list(char *list_name, NumberList *list);
+void free_number_list(NumberList *list);
 
 // void cleanup(void);
 // void display_help(void);
 // void signal_handler(int signal);
 
 // void free_main_number_list(void);
-// void initialize_main_list(const Config *config);
 
-//void init_number_list(NumberList *list);
-//add_number_to_list(NumberList *list, int number);
-// print_number_list();
-//void free_number_list(NumberList *list);
 
 //int start_threads(int num_threads, int numbers_per_thread, NumberList *even_list, NumberList *odd_list);
 //void *thread_function(void *arg);
