@@ -17,6 +17,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+run: fclean $(EXE)
+	./$(EXE) --file ./tests/config/valid_config.txt
+
 run_t: fclean $(EXE)
 	./$(EXE) --file ./tests/config/valid_config.txt > exit1.txt
 
@@ -31,5 +34,10 @@ fclean: clean
 
 unit_test:
 	docker-compose -f ./docker-compose.yml up --build --force-recreate -d
+
+test:
+	cd tests/sh && make run
+
+re: fclean all 
 
 .PHONY: all run val clean fclean unit_test

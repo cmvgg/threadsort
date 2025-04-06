@@ -47,6 +47,7 @@ int validate_config(const Config *config);
 
 /*CLASIF.C*/
 void free_main_number_list(void);
+void display_help(void);
 void initialize_main_list(const Config *config);
 void init_number_list(NumberList *list);
 int add_number_to_list(NumberList *list, int number);
@@ -55,12 +56,10 @@ void free_number_list(NumberList *list);
 int start_threads(int num_threads, int numbers_per_thread, NumberList *even_list, NumberList *odd_list);
 
 /*THREADS.C*/
-
 void *thread_function(void *arg);
 
-
-// void cleanup(void);
-// void display_help(void);
+/*SIGNALS.C*/
+void cleanup(void);
 // void signal_handler(int signal);
 
 #endif

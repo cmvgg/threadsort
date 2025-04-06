@@ -9,7 +9,8 @@ void free_main_number_list() {
 }
 
 void display_help() {
-;}
+    printf("Use: ./threadsort -f | --file <path_to_config file>\n");
+}
 
 void initialize_main_list(const Config *config) {
     if (config == NULL || config->numbers_per_thread <= 0 || config->thread_num <= 0) {
