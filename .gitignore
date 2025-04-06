@@ -14,4 +14,4 @@ logs/
 *.pdb
 *.ilk
 *.txt
-order
+threadsort

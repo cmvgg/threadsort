@@ -73,7 +73,14 @@ int read_config_file(const char *file_path, Config *config) {
     return 0;
 }
 
-int validate_config(const Config *config)
-{
-	;
+int validate_config(const Config *config) {
+    if (config->numbers_per_thread <= 0) {
+        fprintf(stderr, "numbers_per_thread must be greater than zero.\n");
+        return -1;
+    }
+    if (config->thread_num <= 0) {
+        fprintf(stderr, "thread_num must be greater than zero.\n");
+        return -2;
+    }
+    return 0;
 }
