@@ -5,7 +5,7 @@
 NumberList main_number_list;
 
 void free_main_number_list() {
-;
+    free_number_list(&main_number_list);
 }
 
 void display_help() {
@@ -26,7 +26,7 @@ void initialize_main_list(const Config *config) {
     for (int i = 0; i < total_numbers; ++i) {
         fflush(stdout);
         if(final > 0)
-            fprintf(stderr, "count numbers to finish create first list %d.\r", final--);
+            fprintf(stderr, "numbers left: %d\r", final--);
         else
             fprintf(stderr, "/r");
         
@@ -35,7 +35,7 @@ void initialize_main_list(const Config *config) {
         int attempts = 0;
         do {
             if (attempts++ > 10000000) { 
-                fprintf(stderr, "Can't create all numbers.\n");
+                fprintf(stderr, "Advice: increase the number of threads.\n");
                 break;
             }
 
@@ -163,5 +163,43 @@ void free_number_list(NumberList *list) {
 }
 
 int start_threads(int num_threads, int numbers_per_thread, NumberList *even_list, NumberList *odd_list) {
-;
+    pthread_t *threads = malloc(num_threads * sizeof(pthread_t));
+    if (threads == NULL) {
+        perror("Error to allocate memory for threads.\n");
+        return -1;
+    }
+
+    extern NumberList main_number_list;
+
+    ThreadArgs *thread_args = malloc(num_threads * sizeof(ThreadArgs));
+    if (thread_args == NULL) {
+        perror("Error to allocate memory for thread arguments.\n");
+        free(threads);
+        return -1;
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        thread_args[i].main_list = &main_number_list;
+        thread_args[i].even_list = even_list;
+        thread_args[i].odd_list = odd_list;
+        thread_args[i].thread_id = i;
+        thread_args[i].numbers_per_thread = numbers_per_thread;
+
+        if (pthread_create(&threads[i], NULL, thread_function, &thread_args[i]) != 0) {
+            perror("Error create thread.\n");
+            free(threads);
+            free(thread_args);
+            return -1;
+        }
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        if (pthread_join(threads[i], NULL) != 0) {
+            perror("Error join thread.\n");
+        }
+    }
+
+    free(threads);
+    free(thread_args);
+    return 0;
 }
