@@ -72,3 +72,8 @@ int read_config_file(const char *file_path, Config *config) {
 
     return 0;
 }
+
+int validate_config(const Config *config)
+{
+	;
+}
