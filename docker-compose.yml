@@ -1,0 +1,9 @@
+services:
+  order_testing:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile
+    volumes:
+      - ./logs_unit:/app/logs_unit
+    working_dir: /app
+    command:  bash -c "cd /app/tests/unit && make run && make clean"
