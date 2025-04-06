@@ -1,6 +1,6 @@
 #include "../include/clasif.h"
 
-//extern volatile sig_atomic_t termination_flag;
+extern volatile sig_atomic_t termination_flag;
 
 char *trim(char *str) {
     char *end;
@@ -20,12 +20,16 @@ int read_config_file(const char *file_path, Config *config) {
         return -1;
     }
 
+	if (termination_flag && fp) {
+        fclose(fp);
+        return -1;
+    }
 
     char line[256];
     int numbers_per_thread_found = 0;
     int thread_num_found = 0;
 
-    while (fgets(line, sizeof(line), fp) != NULL ) {
+    while (fgets(line, sizeof(line), fp) != NULL && !termination_flag) {
         char *trimmed_line = trim(line);
         if (trimmed_line[0] == '#' || trimmed_line[0] == '\0') {
             continue;

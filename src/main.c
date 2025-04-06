@@ -26,6 +26,16 @@ int main(int argc, char **argv) {
 			return 1;
 		}
 
+		if (signal(SIGINT, signal_handler) == SIG_ERR) {
+			perror("Error to register the SIGINT handler");
+			return 1;
+		}
+
+		if (signal(SIGTERM, signal_handler) == SIG_ERR) {
+			perror("Error to register the SIGTERM handler");
+			return 1;
+		} 
+
 		initialize_main_list(&config);
 
 		NumberList even_list;
@@ -48,7 +58,13 @@ int main(int argc, char **argv) {
 		free_number_list(&odd_list);
 		free_main_number_list();
 
-		cleanup();
+		if (termination_flag) {
+			cleanup();
+			fprintf(stderr, "Program terminated by user signal.\n");
+			exit(0);
+		}  else {
+			cleanup();
+		}
 	}else
 		printf("for use this program you need select option -h | --help or -f |--file\n");
 

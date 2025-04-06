@@ -60,6 +60,6 @@ void *thread_function(void *arg);
 
 /*SIGNALS.C*/
 void cleanup(void);
-// void signal_handler(int signal);
+void signal_handler(int signal);
 
 #endif

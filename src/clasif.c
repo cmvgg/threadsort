@@ -1,7 +1,6 @@
 #include "../include/clasif.h"
 
-//extern volatile sig_atomic_t termination_flag;
-
+extern volatile sig_atomic_t termination_flag;
 NumberList main_number_list;
 
 void free_main_number_list() {
@@ -23,7 +22,6 @@ void initialize_main_list(const Config *config) {
     srand(time(NULL));
     int  final= total_numbers;
 
- 
     for (int i = 0; i < total_numbers; ++i) {
         fflush(stdout);
         if(final > 0)
@@ -55,6 +53,8 @@ void initialize_main_list(const Config *config) {
             add_number_to_list(&main_number_list, random_number);
         }
     }
+	if (termination_flag)
+	fprintf(stderr, "Generation terminated by user signal.\n");
 }
 
 void init_number_list(NumberList *list) {
